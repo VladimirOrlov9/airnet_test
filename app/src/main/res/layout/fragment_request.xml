@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".RequestFragment">
+    tools:context=".ui.requestscreen.RequestFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -19,7 +19,6 @@
         android:layout_marginHorizontal="4dp"
         android:layout_marginVertical="8dp"
         android:elevation="6dp"
-        android:padding="4dp"
         app:cardBackgroundColor="#85D1D6DA"
         app:cardCornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,25 +27,70 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="6dp">
 
             <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                 android:id="@+id/street_autocomplete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                android:hint="@string/select_street"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:hint="@string/select_street"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:maxLines="1"/>
 
             <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                 android:id="@+id/house_autocomplete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/street_autocomplete"
-                android:hint="@string/select_house"/>
+                android:layout_marginTop="4dp"
+                android:hint="@string/select_house"
+                android:maxLines="1"
+                app:layout_constraintTop_toBottomOf="@id/street_autocomplete" />
 
+            <EditText
+                android:id="@+id/house_edittext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:hint="@string/house"
+                android:maxLines="1"
+                app:layout_constraintEnd_toStartOf="@id/literal_edittext"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/house_autocomplete"
+                android:inputType="number"/>
 
+            <EditText
+                android:id="@+id/literal_edittext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:hint="@string/literal"
+                app:layout_constraintEnd_toStartOf="@id/apartment_edittext"
+                app:layout_constraintStart_toEndOf="@id/house_edittext"
+                app:layout_constraintTop_toBottomOf="@id/house_autocomplete"
+                android:inputType="number"/>
+
+            <EditText
+                android:id="@+id/apartment_edittext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:hint="@string/apartment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/literal_edittext"
+                app:layout_constraintTop_toBottomOf="@id/house_autocomplete"
+                android:inputType="number"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/send_button"
+        android:text="@string/send"
+        android:layout_gravity="center"/>
+
 </androidx.appcompat.widget.LinearLayoutCompat>

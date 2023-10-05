@@ -15,4 +15,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Airnet Test"
 include(":app")
- 
+include(":repository")
+include(":domain")
+include(":data")
